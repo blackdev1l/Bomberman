@@ -6,12 +6,12 @@
 int GameMenu::creationMenu(sf::Vector2f &Dimensione)
 {
 
-    if (!this->texture.loadFromFile("backgroundMenu.png"))
+    if (!this->texture.loadFromFile("./Resource/backgroundMenu.png"))
         return EXIT_FAILURE;
     this->background.setTexture(this->texture);
 
 
-	if(!this->font.loadFromFile("arial.ttf"))
+	if(!this->font.loadFromFile("./Resource/arial.ttf"))
 		return EXIT_FAILURE;
 
 	this->scelta[0].setString("Nuova Partita");
