@@ -1,12 +1,11 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-
+#include "Screen.h"
 class GameMenu
 {
 public:
   int creationMenu(sf::Vector2f &Dimensione);
-  bool drawMenu(sf::RenderWindow &window);
-private:
+  Screen::Status drawMenu(sf::RenderWindow &window);
   sf::Texture texture;
   sf::Sprite background;
   sf::Font font;

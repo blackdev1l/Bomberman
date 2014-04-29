@@ -2,14 +2,22 @@
 #include "Screen.h"
 #include "GameMenu.h"
 
-void screen(bool &status)
+Screen::Status Screen::createScreen()
 {
-  sf::Vector2f Dimensione(800,600);
+  Dimensione.x = 800;
+  Dimensione.y = 600;
   sf::RenderWindow window(sf::VideoMode(Dimensione.x,Dimensione.y), "Bomberman");
 	window.setFramerateLimit(60);
   GameMenu menu;
   menu.creationMenu(Dimensione);
-  if(menu.drawMenu(window) == 1)
-    status = 1;
+  return menu.drawMenu(window);
+}
 
+Screen::Status Screen::changeScreen()
+{
+  if(status == Screen::EXIT)
+  {
+    this->window.close();
+    return EXIT;
+  }
 }

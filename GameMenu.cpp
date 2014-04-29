@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include "GameMenu.h"
-
+#include "Screen.h"
 
 int GameMenu::creationMenu(sf::Vector2f &Dimensione)
 {
@@ -29,7 +29,7 @@ int GameMenu::creationMenu(sf::Vector2f &Dimensione)
 	}
 }
 
-bool GameMenu::drawMenu(sf::RenderWindow &window)
+Screen::Status GameMenu::drawMenu(sf::RenderWindow &window)
 {
   int choice = 0; //scelta del menu.
 
@@ -38,9 +38,9 @@ bool GameMenu::drawMenu(sf::RenderWindow &window)
 
     while(window.pollEvent(this->event))
     {
-      if(event.type == sf::Event::Closed || ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))) {
-        window.close();
-        return 1;
+      if(event.type == sf::Event::Closed || ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)))
+      {
+        return Screen::EXIT;
       }
 
       else if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
@@ -64,7 +64,23 @@ bool GameMenu::drawMenu(sf::RenderWindow &window)
         else
           this->scelta[0].setColor(sf::Color::White);
       }
+
+      else if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return)
+      {
+        switch(choice)
+        {
+        case 0:
+          return Screen::NEWGAME;
+        case 1:
+          return Screen::SCOREBOARD;
+        case 2:
+          return Screen::SETTINGS;
+        case 3:
+          return Screen::EXIT;
+        }
+      }
     }
+
 
     
     window.clear();
