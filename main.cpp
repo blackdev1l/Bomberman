@@ -1,10 +1,15 @@
+#ifdef LINUX
 #include <SFML/Graphics.hpp>
+#endif
+
+#ifdef WIN32
+#include <SFML\Graphics.hpp>
+#endif
+
 #include <iostream>
-#include "Screen.h"
-#include "GameMenu.h"
+#include "screen.h"
 
-
-int main()
+int main(int argc, char const *argv[])
 {
   Screen screen;
   screen.createScreen();
@@ -14,5 +19,5 @@ int main()
   }
 
   return 0;
-  
+
 }

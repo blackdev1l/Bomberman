@@ -1,6 +1,13 @@
+#ifdef LINUX
 #include <SFML/Graphics.hpp>
-#include "Screen.h"
-#include "GameMenu.h"
+#endif
+
+#ifdef WIN32
+#include <SFML\Graphics.hpp>
+#endif
+
+#include "screen.h"
+#include "gameMenu.h"
 
 Screen::Status Screen::createScreen()
 {
