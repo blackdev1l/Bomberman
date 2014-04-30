@@ -1,13 +1,7 @@
-#ifdef LINUX
-#include <SFML/Graphics.hpp>
-#endif
-
-#ifdef WIN32
+#pragma once
 #include <SFML\Graphics.hpp>
-#endif
-
-#include "gameMenu.h"
-#include "screen.h"
+#include "GameMenu.h"
+#include "Screen.h"
 
 int GameMenu::creationMenu(sf::Vector2f &Dimensione)
 {
