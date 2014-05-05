@@ -11,14 +11,14 @@
 int GameMenu::creationMenu(sf::Vector2f &Dimensione)
 {
 
-    if (!this->texture.loadFromFile("./Resource/backgroundMenu.png"))
-        return EXIT_FAILURE;
-    this->background.setTexture(this->texture);
-
+  if (!this->texture.loadFromFile("./Resource/backgroundMenu.png"))
+    return EXIT_FAILURE;
+  this->background.setTexture(this->texture);
 
 	if(!this->font.loadFromFile("./Resource/arial.ttf"))
 		return EXIT_FAILURE;
-
+  
+  //inizializzo le possibili scelte e il loro layout
 	this->scelta[0].setString("Nuova Partita");
 	this->scelta[0].setPosition((float)Dimensione.x/2.5, (float)Dimensione.y/4);
   this->scelta[0].setColor(sf::Color::Magenta);
@@ -32,6 +32,7 @@ int GameMenu::creationMenu(sf::Vector2f &Dimensione)
 	{
 		this->scelta[i].setFont(font);
 	}
+
 }
 
 Screen::Status GameMenu::drawMenu(sf::RenderWindow &window)
@@ -86,7 +87,7 @@ Screen::Status GameMenu::drawMenu(sf::RenderWindow &window)
       }
     }
 
-
+    //inizia la parte del ciclo in cui la schermata viene disegnata e aggiornata
     
     window.clear();
 
